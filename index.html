@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pahechan - Express Yourself</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 50px;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    .hero {
+      text-align: center;
+      margin-top: 100px;
+      padding: 0 20px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      background: white;
+      color: #2575fc;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .features {
+      margin-top: 100px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 15px;
+      width: 250px;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      opacity: 0.8;
+    }
+
+    .ranking-box {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Pahechan</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Explore</a>
+    <a href="#">Profile</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Share Your Thoughts. Build Your Identity.</h2>
+  <p>Pahechan lets you express yourself and earn your rank based on engagement.</p>
+  <button class="btn" onclick="showMessage()">Get Started</button>
+</section>
+
+<section class="features">
+  <div class="card">
+    <h3>📝 Share Thoughts</h3>
+    <p>Post what's on your mind and let the world hear you.</p>
+  </div>
+
+  <div class="card">
+    <h3>🏆 Rankings</h3>
+    <p>Get ranked based on your influence and engagement.</p>
+  </div>
+
+  <div class="card">
+    <h3>🌐 Connect</h3>
+    <p>Meet people and grow your identity socially.</p>
+  </div>
+</section>
+
+<section class="ranking-box">
+  <h2>Check Your Rank</h2>
+  <input type="text" id="username" placeholder="Enter username">
+  <button class="btn" onclick="checkRank()">Check</button>
+  <p id="rankResult" style="margin-top: 20px;"></p>
+</section>
+
+<footer>
+  <p>© 2026 Pahechan. All rights reserved.</p>
+</footer>
+
+<script>
+  function showMessage() {
+    alert("Welcome to Pahechan! 🚀");
+  }
+
+  function checkRank() {
+    const username = document.getElementById("username").value;
+    const ranks = ["Beginner", "Rising Star", "Influencer", "Icon"];
+    const randomRank = ranks[Math.floor(Math.random() * ranks.length)];
+
+    if(username.trim() === "") {
+      document.getElementById("rankResult").innerText = "Please enter a username!";
+    } else {
+      document.getElementById("rankResult").innerText = 
+        username + ", your rank is: " + randomRank;
+    }
+  }
+</script>
+
+</body>
+</html>
